@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebApplication1.Models.FilmGenre>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Film)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Film.FilmId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre.GenreId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { item.FilmGenreId }) |
+                    @Html.ActionLink("Details", "Details", new { item.FilmGenreId }) |
+                    @Html.ActionLink("Delete", "Delete", new { item.FilmGenreId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
